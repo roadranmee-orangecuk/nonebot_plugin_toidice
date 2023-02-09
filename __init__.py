@@ -16,19 +16,20 @@ from .set import set_attributes
 from .cname import set_cname
 from .observe import manage_observes
 from .handout import get_handout_assignments
-from .help import get_tip
+from .help import get_tip, get_help
 
 rd = on_keyword(['.r', '。r'], priority=2)  # 普通掷骰
-ra = on_keyword(['.ra', '。ra'], priority=1)    # 技能检定
-rh = on_keyword(['.rh', '。rh'], priority=1)    # 暗骰
-sc = on_keyword(['.sc', '。sc'], priority=1)    # 理智检定
-en = on_keyword(['.en', '。en'], priority=1)  # 属性成长检定
-coc = on_keyword(['.coc', '。coc'], priority=1)  # 调查员作成
-pc = on_keyword(['.pc', '。pc'], priority=1)    # 调查员角色卡管理
-st = on_keyword(['.st', '。st'], priority=1)    # 设置属性
-cn = on_keyword(['.cn', '。cn'], priority=1)    # 设置调查员名称
-ob = on_keyword(['.ob', '。ob'], priority=1)    # 观察队列管理
-ho = on_keyword(['.ho', '。ho'], priority=1)    # 预设背景分配
+ra = on_keyword(['.ra', '。ra'])    # 技能检定
+rh = on_keyword(['.rh', '。rh'])    # 暗骰
+sc = on_keyword(['.sc', '。sc'])    # 理智检定
+en = on_keyword(['.en', '。en'])  # 属性成长检定
+coc = on_keyword(['.coc', '。coc'])  # 调查员作成
+pc = on_keyword(['.pc', '。pc'])    # 调查员角色卡管理
+st = on_keyword(['.st', '。st'])    # 设置属性
+cn = on_keyword(['.cn', '。cn'])    # 设置调查员名称
+ob = on_keyword(['.ob', '。ob'])    # 观察队列管理
+ho = on_keyword(['.ho', '。ho'])    # 预设背景分配
+help_ = on_keyword(['.help', '。help'])  # 帮助
 
 
 def get_user_defined_reply() -> dict[str, str]:
@@ -420,3 +421,18 @@ async def _(event: Event):
     else:
         content = get_tip('ho')+'\n\n'+get_tip('ps')
     await ho.finish(Message(content))
+
+
+@help_.handle()
+async def _(event: Event):
+    reply = get_user_defined_reply()
+    text = event.get_plaintext()
+    commands = ['.help ', '。help ', '.help', '。help']
+    for command in commands:
+        text = text.replace(command, '')
+    result = get_help(text)
+    if result is None:
+        content = reply['help']
+    else:
+        content = result
+    await help_.finish(Message(content))

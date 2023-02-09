@@ -49,6 +49,7 @@ def init_reply() -> dict:
         'ob_user_notfound': '{0}不在观察队列中x',
         'ob_list_ok': '观察队列：\n',
         'ob_clear_ok': '成功清除ob队列√',
-        'ho': '预设背景分配：\n'
+        'ho': '预设背景分配：\n',
+        'help_notfound': '没有找到相关资料x'
     }
     return reply
