@@ -16,23 +16,23 @@ tips = {
 }
 
 theme ='''
-欢迎使用toidice(Alpha)！\n
-这是一款基于nonebot2和go-cqhttp的coc7th跑团插件\n
-git:https://github.com/roadranmee-orangecuk/nonebot_plugin_toidice\n
-目前正常运行的指令集：\n
-    r:  普通掷骰\n
-    ra: 技能检定\n
-    rh: 暗骰\n
-    sc: 理智检定\n
-    en: 属性成长检定\n
-    coc:调查员作成\n
-    pc: 角色卡管理\n
-    st: 设置属性\n
-    cn: 设置角色卡名称\n
-    ob: 观察队列管理\n
-    ho: 秘密团分配预设背景\n
-使用 .help 指令名 查看指令具体使用提示\n
-有更多问题请联系开发者QQ:1289468324
+欢迎使用toidice(Alpha)！
+这是一款基于nonebot2和go-cqhttp的coc7th跑团插件
+git:https://github.com/roadranmee-orangecuk/nonebot_plugin_toidice
+目前正常运行的指令集：
+    r:  普通掷骰
+    ra: 技能检定
+    rh: 暗骰
+    sc: 理智检定
+    en: 属性成长检定
+    coc:调查员作成
+    pc: 角色卡管理
+    st: 设置属性
+    cn: 设置角色卡名称
+    ob: 观察队列管理
+    ho: 秘密团分配预设背景
+使用 .help 指令名 查看指令具体使用提示
+有更多问题请提交issue或联系开发者QQ:1289468324
 '''
 
 
