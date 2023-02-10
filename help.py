@@ -15,8 +15,7 @@ tips = {
     'ps': '使用 .help 指令查看更多的 toidice 帮助内容'
 }
 
-theme ='''
-欢迎使用toidice(Alpha)！
+theme ='''欢迎使用toidice(Alpha)！
 这是一款基于nonebot2和go-cqhttp的coc7th跑团插件
 git:https://github.com/roadranmee-orangecuk/nonebot_plugin_toidice
 目前正常运行的指令集：
@@ -32,8 +31,7 @@ git:https://github.com/roadranmee-orangecuk/nonebot_plugin_toidice
     ob: 观察队列管理
     ho: 秘密团分配预设背景
 使用 .help 指令名 查看指令具体使用提示
-有更多问题请提交issue或联系开发者QQ:1289468324
-'''
+有更多问题请提交issue或联系开发者QQ:1289468324'''
 
 
 def get_help(text: str):
