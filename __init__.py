@@ -432,7 +432,7 @@ async def _(event: Event):
         text = text.replace(command, '')
     result = get_help(text)
     if result is None:
-        content = reply['help']
+        content = reply['help_notfound']
     else:
         content = result
     await help_.finish(Message(content))
