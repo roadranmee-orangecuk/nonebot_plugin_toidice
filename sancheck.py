@@ -8,7 +8,7 @@ from .set import set_attributes
 
 def get_sancheck(text: str, group_id: str, user_id: str):
     formulas = text.split('/')
-    if len(formulas) != 2:
+    if len(formulas) != 2 or formulas[0] == '' or formulas[1] == '':
         return None
     path_ = f'data/toidice/users/{user_id}'
     if not os.path.exists(path_):
@@ -22,9 +22,9 @@ def get_sancheck(text: str, group_id: str, user_id: str):
         sc_result = get_rd_result(formulas[1])
         avalue -= sc_result['sum']
         set_attributes('san'+str(avalue), group_id, user_id)
-        return {'text':formulas[1],'avalue': avalue, 'ra_sum': ra_result['sum'], 'sc_sum': sc_result['sum'], 'rating': 'FAILURE', 'status': 'SC_OK'}
+        return {'text': formulas[1], 'avalue': avalue, 'ra_sum': ra_result['sum'], 'sc_sum': sc_result['sum'], 'rating': 'FAILURE', 'status': 'SC_OK'}
     else:
         sc_result = get_rd_result(formulas[0])
         avalue -= sc_result['sum']
         set_attributes('san'+str(avalue), group_id, user_id)
-        return {'text':formulas[0],'avalue': avalue, 'ra_sum': ra_result['sum'], 'sc_sum': sc_result['sum'], 'rating': 'SUCCESS', 'status': 'SC_OK'}
+        return {'text': formulas[0], 'avalue': avalue, 'ra_sum': ra_result['sum'], 'sc_sum': sc_result['sum'], 'rating': 'SUCCESS', 'status': 'SC_OK'}
