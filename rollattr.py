@@ -66,23 +66,31 @@ def get_pb(text_pb: str) -> dict:
         return {'process': result['process'], 'sum': result['sum']}
     pbs = list(text_pb)
     pb_process = ''
+    units = random.randint(0, 9)
     pb_sum = random.randint(0, 9)*10
+    sum_ = if_sum_zero(pb_sum, units)
     for pb in pbs:
         dice = random.randint(0, 9)*10
+        sum_now = if_sum_zero(dice, units)
         if pb == 'p':
             pb_process += 'p('+str(dice)+'|'+str(pb_sum)+')'
-            if dice > pb_sum:
+            if sum_now > sum_:
                 pb_sum = dice
+                sum_ = sum_now
         else:
             pb_process += 'b('+str(dice)+'|'+str(pb_sum)+')'
-            if dice < pb_sum:
+            if sum_now < sum_:
                 pb_sum = dice
-    units = random.randint(0, 9)
+                sum_ = sum_now
     process = pb_process+'->'+str(pb_sum)+'+'+str(units)
+    return {'process': process, 'sum': sum_}
+
+
+def if_sum_zero(pb_sum: int, units: int):
     sum_ = pb_sum+units
     if sum_ == 0:
         sum_ = 100
-    return {'process': process, 'sum': sum_}
+    return sum_
 
 
 def get_rating(avalue: int, sum_: int) -> str:
