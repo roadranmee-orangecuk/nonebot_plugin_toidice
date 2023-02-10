@@ -189,7 +189,7 @@ async def send_obs_msg(order: int, count: int, group_id: str, content_private: s
 async def _(bot: Bot, event: GroupMessageEvent):
     reply = get_user_defined_reply()
     text = event.get_plaintext()
-    commands = ['.en ', '。en ', '.en', '。en']
+    commands = ['.sc ', '。sc ', '.sc', '。sc']
     for command in commands:
         text = text.replace(command, '')
     group_id = get_group_id(event.get_session_id())
